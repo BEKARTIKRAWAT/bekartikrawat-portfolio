@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kartik Rawat | Full Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            grotesk: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            primary: '#6366f1',
+            secondary: '#8b5cf6',
+            accent: '#06b6d4',
+            dark: '#07070f',
+            card: '#0e0e1a',
+            border: '#1a1a2e',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-dark text-white overflow-x-hidden font-grotesk">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-50" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="logo font-syne text-2xl font-black gradient-text">&lt;KR /&gt;</div>
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a href="#home" class="nav-link text-gray-400 hover:text-white transition-all text-sm font-medium">Home</a></li>
+        <li><a href="#about" class="nav-link text-gray-400 hover:text-white transition-all text-sm font-medium">About</a></li>
+        <li><a href="#skills" class="nav-link text-gray-400 hover:text-white transition-all text-sm font-medium">Skills</a></li>
+        <li><a href="#projects" class="nav-link text-gray-400 hover:text-white transition-all text-sm font-medium">Projects</a></li>
+        <li><a href="#chat" class="nav-link text-gray-400 hover:text-white transition-all text-sm font-medium">AI Chat</a></li>
+        <li><a href="#contact" class="nav-link text-gray-400 hover:text-white transition-all text-sm font-medium">Contact</a></li>
+      </ul>
+      <a href="mailto:kartikrawat1333@gmail.com" class="hire-btn hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        Hire Me
+      </a>
+      <button class="md:hidden text-gray-400 hover:text-white" id="menuBtn">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    <div class="mobile-menu hidden md:hidden px-6 py-4 space-y-3" id="mobileMenu">
+      <a href="#home" class="block text-gray-400 hover:text-white py-2 text-sm">Home</a>
+      <a href="#about" class="block text-gray-400 hover:text-white py-2 text-sm">About</a>
+      <a href="#skills" class="block text-gray-400 hover:text-white py-2 text-sm">Skills</a>
+      <a href="#projects" class="block text-gray-400 hover:text-white py-2 text-sm">Projects</a>
+      <a href="#chat" class="block text-gray-400 hover:text-white py-2 text-sm">AI Chat</a>
+      <a href="#contact" class="block text-gray-400 hover:text-white py-2 text-sm">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero-section min-h-screen flex items-center pt-24 relative overflow-hidden">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grid-bg"></div>
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
+      <div class="hero-left space-y-8">
+        <div class="badge inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm text-gray-400">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Available for freelance work
+        </div>
+        <div>
+          <p class="text-gray-500 text-lg mb-2 font-medium tracking-widest uppercase">Hello, I'm</p>
+          <h1 class="font-syne text-6xl md:text-8xl font-black leading-none">
+            <span class="text-white">Kartik</span><br/>
+            <span class="gradient-text">Rawat</span>
+          </h1>
+        </div>
+        <div>
+          <span class="text-gray-400 text-xl">I build </span>
+          <span class="text-xl font-semibold gradient-text" id="typewriter"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+        <p class="text-gray-500 max-w-lg leading-relaxed text-lg">Passionate developer crafting modern web experiences with clean code, creative design, and a love for innovation.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects" class="btn-primary px-8 py-4 rounded-2xl font-semibold text-sm flex items-center gap-2">View Projects <i class="fas fa-arrow-right"></i></a>
+          <a href="#chat" class="btn-ghost px-8 py-4 rounded-2xl font-semibold text-sm flex items-center gap-2">Chat With AI 🤖</a>
+        </div>
+        <div class="flex items-center gap-3 pt-2">
+          <span class="text-gray-600 text-sm">Follow me:</span>
+          <a href="https://github.com/bekartikrawat" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/bekartikrawat" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="https://instagram.com/bekartikrawat" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com/bekartikrawat" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="https://youtube.com/@bekartikrawat" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="hero-right flex justify-center lg:justify-end">
+        <div class="avatar-wrapper relative">
+          <div class="avatar-ring-outer"></div>
+          <div class="avatar-ring-inner"></div>
+          <div class="avatar-main">
+            <span class="font-syne font-black text-5xl gradient-text">KR</span>
+          </div>
+          <div class="float-badge float-badge-1"><span>⚡</span><span class="text-xs font-semibold">Node.js</span></div>
+          <div class="float-badge float-badge-2"><span>🍃</span><span class="text-xs font-semibold">MongoDB</span></div>
+          <div class="float-badge float-badge-3"><span>🚀</span><span class="text-xs font-semibold">Express</span></div>
+          <div class="float-badge float-badge-4"><span>🎨</span><span class="text-xs font-semibold">CSS3</span></div>
+          <div class="hero-stat stat-top-right">
+            <span class="gradient-text font-syne font-black text-2xl">10+</span>
+            <span class="text-gray-500 text-xs">Projects</span>
+          </div>
+          <div class="hero-stat stat-bottom-left">
+            <span class="gradient-text font-syne font-black text-2xl">8+</span>
+            <span class="text-gray-500 text-xs">Skills</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <span class="text-gray-600 text-xs tracking-widest uppercase">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-32 relative">
+    <div class="section-blob section-blob-left"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <span class="section-tag">Get To Know</span>
+        <h2 class="font-syne text-5xl md:text-6xl font-black mt-3">About <span class="gradient-text">Me</span></h2>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6 reveal">
+          <p class="text-gray-300 text-lg leading-relaxed">Hi! I'm <span class="text-white font-semibold">Kartik Rawat</span>, a passionate Full Stack Developer based in India.</p>
+          <p class="text-gray-400 leading-relaxed">I work with the complete web stack — from crafting pixel-perfect frontends to building robust backends with Node.js, Express, and MongoDB.</p>
+          <div class="grid grid-cols-1 gap-3 mt-6">
+            <div class="info-row"><div class="info-icon"><i class="fas fa-user"></i></div><div><p class="text-gray-500 text-xs uppercase tracking-wider">Full Name</p><p class="font-semibold">Kartik Rawat</p></div></div>
+            <div class="info-row"><div class="info-icon"><i class="fas fa-at"></i></div><div><p class="text-gray-500 text-xs uppercase tracking-wider">Username</p><p class="font-semibold gradient-text">@bekartikrawat</p></div></div>
+            <div class="info-row"><div class="info-icon"><i class="fas fa-envelope"></i></div><div><p class="text-gray-500 text-xs uppercase tracking-wider">Email</p><p class="font-semibold">kartikrawat1333@gmail.com</p></div></div>
+            <div class="info-row"><div class="info-icon"><i class="fas fa-circle-check"></i></div><div><p class="text-gray-500 text-xs uppercase tracking-wider">Status</p><p class="font-semibold text-green-400">Available for Work ✅</p></div></div>
+          </div>
+          <a href="mailto:kartikrawat1333@gmail.com" class="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-sm mt-4">Hire Me <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="grid grid-cols-2 gap-5 reveal">
+          <div class="stat-card"><span class="font-syne text-5xl font-black gradient-text">10+</span><p class="text-gray-400 text-sm mt-2">Projects Completed</p></div>
+          <div class="stat-card"><span class="font-syne text-5xl font-black gradient-text">8+</span><p class="text-gray-400 text-sm mt-2">Technologies Mastered</p></div>
+          <div class="stat-card"><span class="font-syne text-5xl font-black gradient-text">100%</span><p class="text-gray-400 text-sm mt-2">Client Satisfaction</p></div>
+          <div class="stat-card"><span class="font-syne text-5xl font-black gradient-text">∞</span><p class="text-gray-400 text-sm mt-2">Passion for Coding</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-32 relative overflow-hidden">
+    <div class="skills-bg"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-20">
+        <span class="section-tag">What I Know</span>
+        <h2 class="font-syne text-5xl md:text-6xl font-black mt-3">My <span class="gradient-text">Skills</span></h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="skill-card reveal" data-delay="0"><div class="skill-icon-wrap" style="--icon-color:#e44d26"><i class="fab fa-html5 text-3xl" style="color:#e44d26"></i></div><p class="font-syne font-bold text-lg mt-4">HTML5</p><p class="text-gray-500 text-xs mt-1">Expert</p><div class="skill-bar"><div class="skill-fill" style="width:95%;--fill-color:#e44d26"></div></div></div>
+        <div class="skill-card reveal" data-delay="100"><div class="skill-icon-wrap" style="--icon-color:#2965f1"><i class="fab fa-css3-alt text-3xl" style="color:#2965f1"></i></div><p class="font-syne font-bold text-lg mt-4">CSS3</p><p class="text-gray-500 text-xs mt-1">Expert</p><div class="skill-bar"><div class="skill-fill" style="width:92%;--fill-color:#2965f1"></div></div></div>
+        <div class="skill-card reveal" data-delay="200"><div class="skill-icon-wrap" style="--icon-color:#f7df1e"><i class="fab fa-js text-3xl" style="color:#f7df1e"></i></div><p class="font-syne font-bold text-lg mt-4">JavaScript</p><p class="text-gray-500 text-xs mt-1">Advanced</p><div class="skill-bar"><div class="skill-fill" style="width:85%;--fill-color:#f7df1e"></div></div></div>
+        <div class="skill-card reveal" data-delay="300"><div class="skill-icon-wrap" style="--icon-color:#68a063"><i class="fab fa-node-js text-3xl" style="color:#68a063"></i></div><p class="font-syne font-bold text-lg mt-4">Node.js</p><p class="text-gray-500 text-xs mt-1">Advanced</p><div class="skill-bar"><div class="skill-fill" style="width:80%;--fill-color:#68a063"></div></div></div>
+        <div class="skill-card reveal" data-delay="0"><div class="skill-icon-wrap" style="--icon-color:#999"><i class="fas fa-server text-3xl text-gray-400"></i></div><p class="font-syne font-bold text-lg mt-4">Express.js</p><p class="text-gray-500 text-xs mt-1">Advanced</p><div class="skill-bar"><div class="skill-fill" style="width:80%;--fill-color:#888"></div></div></div>
+        <div class="skill-card reveal" data-delay="100"><div class="skill-icon-wrap" style="--icon-color:#4db33d"><i class="fas fa-database text-3xl" style="color:#4db33d"></i></div><p class="font-syne font-bold text-lg mt-4">MongoDB</p><p class="text-gray-500 text-xs mt-1">Intermediate</p><div class="skill-bar"><div class="skill-fill" style="width:70%;--fill-color:#4db33d"></div></div></div>
+        <div class="skill-card reveal" data-delay="200"><div class="skill-icon-wrap" style="--icon-color:#61dafb"><i class="fab fa-react text-3xl" style="color:#61dafb"></i></div><p class="font-syne font-bold text-lg mt-4">React</p><p class="text-gray-500 text-xs mt-1">Learning</p><div class="skill-bar"><div class="skill-fill" style="width:55%;--fill-color:#61dafb"></div></div></div>
+        <div class="skill-card reveal" data-delay="300"><div class="skill-icon-wrap" style="--icon-color:#f05032"><i class="fab fa-git-alt text-3xl" style="color:#f05032"></i></div><p class="font-syne font-bold text-lg mt-4">Git & GitHub</p><p class="text-gray-500 text-xs mt-1">Advanced</p><div class="skill-bar"><div class="skill-fill" style="width:85%;--fill-color:#f05032"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-32 relative">
+    <div class="section-blob section-blob-right"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-20">
+        <span class="section-tag">My Work</span>
+        <h2 class="font-syne text-5xl md:text-6xl font-black mt-3">Featured <span class="gradient-text">Projects</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="project-card reveal">
+          <div class="project-header"><div class="project-icon" style="--p-color:#6366f1">🤖</div><div class="project-links"><a href="https://github.com/bekartikrawat" target="_blank" class="project-link-btn"><i class="fab fa-github"></i></a><a href="#" class="project-link-btn"><i class="fas fa-external-link-alt"></i></a></div></div>
+          <h3 class="font-syne font-bold text-xl mt-5 mb-3">AI Portfolio Chat</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Personal portfolio with AI chatbot. Built with Node.js, Express, MongoDB and OpenAI API.</p>
+          <div class="project-tags mt-5"><span class="tag" style="--t-color:#6366f1">Node.js</span><span class="tag" style="--t-color:#8b5cf6">MongoDB</span><span class="tag" style="--t-color:#06b6d4">OpenAI</span></div>
+        </div>
+        <div class="project-card reveal" data-delay="150">
+          <div class="project-header"><div class="project-icon" style="--p-color:#8b5cf6">🌐</div><div class="project-links"><a href="https://github.com/bekartikrawat" target="_blank" class="project-link-btn"><i class="fab fa-github"></i></a><a href="#" class="project-link-btn"><i class="fas fa-external-link-alt"></i></a></div></div>
+          <h3 class="font-syne font-bold text-xl mt-5 mb-3">Full Stack Web App</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Modern web application with JWT authentication, REST APIs, and fully responsive UI.</p>
+          <div class="project-tags mt-5"><span class="tag" style="--t-color:#6366f1">Express</span><span class="tag" style="--t-color:#8b5cf6">JWT Auth</span><span class="tag" style="--t-color:#06b6d4">REST API</span></div>
+        </div>
+        <div class="project-card reveal" data-delay="300">
+          <div class="project-header"><div class="project-icon" style="--p-color:#06b6d4">📱</div><div class="project-links"><a href="https://github.com/bekartikrawat" target="_blank" class="project-link-btn"><i class="fab fa-github"></i></a><a href="#" class="project-link-btn"><i class="fas fa-external-link-alt"></i></a></div></div>
+          <h3 class="font-syne font-bold text-xl mt-5 mb-3">Responsive UI Kit</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Beautiful, reusable UI components library built with pure HTML, CSS and JavaScript.</p>
+          <div class="project-tags mt-5"><span class="tag" style="--t-color:#e44d26">HTML5</span><span class="tag" style="--t-color:#2965f1">CSS3</span><span class="tag" style="--t-color:#f7df1e">JavaScript</span></div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="https://github.com/bekartikrawat" target="_blank" class="btn-ghost px-8 py-4 rounded-2xl font-semibold text-sm inline-flex items-center gap-2"><i class="fab fa-github"></i> View All on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI CHAT -->
+  <section id="chat" class="py-32 relative overflow-hidden">
+    <div class="chat-bg"></div>
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-12">
+        <span class="section-tag">Ask Anything</span>
+        <h2 class="font-syne text-5xl md:text-6xl font-black mt-3">Chat With <span class="gradient-text">AI</span></h2>
+        <p class="text-gray-400 mt-4 text-lg">Ask me anything about Kartik — skills, projects, or contact!</p>
+      </div>
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="flex items-center gap-3">
+            <div class="chat-avatar">AI</div>
+            <div><p class="font-semibold text-sm">Kartik's AI Assistant</p><p class="text-xs text-green-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse"></span> Online</p></div>
+          </div>
+          <div class="flex gap-1.5"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg">
+            <div class="msg-avatar-small">AI</div>
+            <div class="msg-bubble bot-bubble"><p>Hey! 👋 I'm Kartik's AI assistant. Ask me anything about him!</p><span class="msg-time">Just now</span></div>
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <input type="text" id="chatInput" placeholder="Ask about Kartik..." class="chat-input"/>
+          <button id="sendBtn" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-32 relative">
+    <div class="section-blob section-blob-left"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-20">
+        <span class="section-tag">Let's Connect</span>
+        <h2 class="font-syne text-5xl md:text-6xl font-black mt-3">Get In <span class="gradient-text">Touch</span></h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <a href="mailto:kartikrawat1333@gmail.com" class="contact-card reveal" style="--c-color:#ef4444"><i class="fas fa-envelope text-3xl" style="color:#ef4444"></i><p class="font-syne font-bold mt-3">Email</p><p class="text-gray-500 text-xs mt-1">kartikrawat1333</p></a>
+        <a href="https://github.com/bekartikrawat" target="_blank" class="contact-card reveal" style="--c-color:#fff"><i class="fab fa-github text-3xl text-white"></i><p class="font-syne font-bold mt-3">GitHub</p><p class="text-gray-500 text-xs mt-1">bekartikrawat</p></a>
+        <a href="https://linkedin.com/in/bekartikrawat" target="_blank" class="contact-card reveal" style="--c-color:#0a66c2"><i class="fab fa-linkedin text-3xl" style="color:#0a66c2"></i><p class="font-syne font-bold mt-3">LinkedIn</p><p class="text-gray-500 text-xs mt-1">bekartikrawat</p></a>
+        <a href="https://instagram.com/bekartikrawat" target="_blank" class="contact-card reveal" style="--c-color:#e1306c"><i class="fab fa-instagram text-3xl" style="color:#e1306c"></i><p class="font-syne font-bold mt-3">Instagram</p><p class="text-gray-500 text-xs mt-1">bekartikrawat</p></a>
+        <a href="https://twitter.com/bekartikrawat" target="_blank" class="contact-card reveal" style="--c-color:#1da1f2"><i class="fab fa-twitter text-3xl" style="color:#1da1f2"></i><p class="font-syne font-bold mt-3">Twitter / X</p><p class="text-gray-500 text-xs mt-1">bekartikrawat</p></a>
+        <a href="https://youtube.com/@bekartikrawat" target="_blank" class="contact-card reveal" style="--c-color:#ff0000"><i class="fab fa-youtube text-3xl" style="color:#ff0000"></i><p class="font-syne font-bold mt-3">YouTube</p><p class="text-gray-500 text-xs mt-1">bekartikrawat</p></a>
+        <a href="https://t.me/bekartikrawat" target="_blank" class="contact-card reveal" style="--c-color:#29b6f6"><i class="fab fa-telegram text-3xl" style="color:#29b6f6"></i><p class="font-syne font-bold mt-3">Telegram</p><p class="text-gray-500 text-xs mt-1">bekartikrawat</p></a>
+        <a href="https://discord.com/users/bekartikrawat" target="_blank" class="contact-card reveal" style="--c-color:#5865f2"><i class="fab fa-discord text-3xl" style="color:#5865f2"></i><p class="font-syne font-bold mt-3">Discord</p><p class="text-gray-500 text-xs mt-1">bekartikrawat</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="font-syne text-2xl font-black gradient-text">&lt;KR /&gt;</div>
+      <p class="text-gray-600 text-sm">Designed & Built with ❤️ by <span class="gradient-text font-semibold">Kartik Rawat</span></p>
+      <p class="text-gray-700 text-sm">@bekartikrawat • 2024</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
