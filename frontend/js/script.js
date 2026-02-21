@@ -1,163 +1,108 @@
-// ===== CUSTOM CURSOR =====
+// ========== CURSOR ==========
 const cursor = document.getElementById('cursor');
 const cursorFollower = document.getElementById('cursorFollower');
-let mouseX = 0, mouseY = 0;
-let followerX = 0, followerY = 0;
 
 document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top = mouseY + 'px';
-});
-
-function animateFollower() {
-  followerX += (mouseX - followerX) * 0.12;
-  followerY += (mouseY - followerY) * 0.12;
-  cursorFollower.style.left = followerX + 'px';
-  cursorFollower.style.top = followerY + 'px';
-  requestAnimationFrame(animateFollower);
-}
-animateFollower();
-
-document.querySelectorAll('a, button, .skill-card, .project-card, .contact-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursorFollower.classList.add('hovering'));
-  el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hovering'));
-});
-
-// ===== NAVBAR SCROLL =====
-const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+  if (cursor) { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; }
+  if (cursorFollower) {
+    setTimeout(() => {
+      cursorFollower.style.left = e.clientX + 'px';
+      cursorFollower.style.top = e.clientY + 'px';
+    }, 80);
   }
-  const sections = document.querySelectorAll('section[id]');
-  sections.forEach(section => {
-    const top = section.offsetTop - 100;
-    const bottom = top + section.offsetHeight;
-    const id = section.getAttribute('id');
-    if (window.scrollY >= top && window.scrollY < bottom) {
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + id) link.classList.add('active');
-      });
-    }
-  });
 });
 
-// ===== MOBILE MENU =====
+// ========== NAVBAR ==========
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// ========== MOBILE MENU ==========
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
-menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
-  const icon = menuBtn.querySelector('i');
-  icon.className = mobileMenu.classList.contains('hidden') ? 'fas fa-bars text-xl' : 'fas fa-times text-xl';
-});
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-    menuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+if (menuBtn) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
   });
+}
+
+// Close mobile menu on link click
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
 });
 
-// ===== TYPEWRITER =====
-const words = [
-  'Modern Web Apps 🌐',
-  'REST APIs 🔌',
-  'Full Stack Solutions 🚀',
-  'Beautiful UIs 🎨',
-  'MongoDB Databases 🍃',
-  'Express Backends ⚡'
-];
+// ========== TYPEWRITER ==========
+const words = ['Modern Websites 🌐', 'REST APIs ⚡', 'Full Stack Apps 🚀', 'Creative UIs 🎨'];
 let wordIndex = 0, charIndex = 0, isDeleting = false;
 const typeEl = document.getElementById('typewriter');
 
 function type() {
-  const currentWord = words[wordIndex];
+  if (!typeEl) return;
+  const word = words[wordIndex];
   if (isDeleting) {
-    typeEl.textContent = currentWord.substring(0, charIndex - 1);
-    charIndex--;
+    typeEl.textContent = word.substring(0, charIndex--);
+    if (charIndex < 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; setTimeout(type, 500); return; }
   } else {
-    typeEl.textContent = currentWord.substring(0, charIndex + 1);
-    charIndex++;
-  }
-  if (!isDeleting && charIndex === currentWord.length) {
-    setTimeout(() => isDeleting = true, 1800);
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
+    typeEl.textContent = word.substring(0, charIndex++);
+    if (charIndex > word.length) { isDeleting = true; setTimeout(type, 1500); return; }
   }
   setTimeout(type, isDeleting ? 60 : 100);
 }
 type();
 
-// ===== SCROLL REVEAL =====
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+// ========== SCROLL REVEAL ==========
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       const delay = entry.target.dataset.delay || 0;
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-        const bar = entry.target.querySelector('.skill-fill');
-        if (bar) {
-          const width = bar.style.width;
-          bar.style.width = '0';
-          setTimeout(() => bar.style.width = width, 100);
-        }
-      }, parseInt(delay));
-      revealObserver.unobserve(entry.target);
+      setTimeout(() => entry.target.classList.add('visible'), delay);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+// ========== ACTIVE NAV LINK ==========
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 200) current = section.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
 
-// ===== CHAT =====
-const chatMessages = document.getElementById('chatMessages');
+// ========== AI CHAT ==========
 const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
 const sendBtn = document.getElementById('sendBtn');
 
-function getTime() {
-  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
-
-function addMessage(text, isUser = false) {
-  const msg = document.createElement('div');
-  msg.className = `chat-msg ${isUser ? 'user' : ''}`;
-  if (isUser) {
-    msg.innerHTML = `
-      <div class="msg-bubble user-bubble">
-        <p>${text}</p>
-        <span class="msg-time">${getTime()}</span>
-      </div>`;
-  } else {
-    msg.innerHTML = `
-      <div class="msg-avatar-small">AI</div>
-      <div class="msg-bubble bot-bubble">
-        <p>${text}</p>
-        <span class="msg-time">${getTime()}</span>
-      </div>`;
-  }
-  chatMessages.appendChild(msg);
+function appendMessage(text, isUser = false) {
+  const div = document.createElement('div');
+  div.className = `chat-msg ${isUser ? 'chat-msg-user' : 'chat-msg-ai'}`;
+  div.innerHTML = `
+    ${!isUser ? '<div class="chat-avatar-sm">AI</div>' : ''}
+    <div class="chat-bubble">${text}</div>
+    ${isUser ? '<div class="chat-avatar-sm chat-avatar-user">You</div>' : ''}
+  `;
+  chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 function showTyping() {
-  const typing = document.createElement('div');
-  typing.className = 'chat-msg';
-  typing.id = 'typingIndicator';
-  typing.innerHTML = `
-    <div class="msg-avatar-small">AI</div>
-    <div class="msg-bubble bot-bubble">
-      <div class="typing-indicator">
-        <span></span><span></span><span></span>
-      </div>
-    </div>`;
-  chatMessages.appendChild(typing);
+  const div = document.createElement('div');
+  div.className = 'chat-msg chat-msg-ai';
+  div.id = 'typingIndicator';
+  div.innerHTML = `
+    <div class="chat-avatar-sm">AI</div>
+    <div class="chat-bubble typing-dots"><span></span><span></span><span></span></div>
+  `;
+  chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
@@ -167,53 +112,51 @@ function removeTyping() {
 }
 
 async function sendMessage() {
+  if (!chatInput) return;
   const message = chatInput.value.trim();
   if (!message) return;
-  addMessage(message, true);
+
   chatInput.value = '';
-  sendBtn.disabled = true;
+  chatInput.disabled = true;
+  if (sendBtn) sendBtn.disabled = true;
+
+  appendMessage(message, true);
   showTyping();
+
   try {
-    const response = await fetch('/api/chat', {
+    const response = await fetch('http://localhost:5000/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message })
     });
+
     const data = await response.json();
     removeTyping();
+
     if (data.reply) {
-      addMessage(data.reply);
+      appendMessage(data.reply);
     } else {
-      addMessage("Sorry, I couldn't get a response right now. Try again! 🙏");
+      appendMessage('Sorry, kuch problem ho gayi. Dobara try karo! 😊');
     }
   } catch (err) {
     removeTyping();
-    addMessage("Oops! Something went wrong. Please try again later. 😅");
+    appendMessage('Server se connect nahi ho pa raha. Backend chal raha hai? 🔌');
   }
-  sendBtn.disabled = false;
+
+  chatInput.disabled = false;
+  if (sendBtn) sendBtn.disabled = false;
   chatInput.focus();
 }
 
-sendBtn.addEventListener('click', sendMessage);
-chatInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') sendMessage();
-});
+// Send on button click
+if (sendBtn) sendBtn.addEventListener('click', sendMessage);
 
-// ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// Send on Enter key
+if (chatInput) {
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
   });
-});
-
-// ===== PAGE LOAD =====
-window.addEventListener('load', () => {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.5s ease';
-  setTimeout(() => document.body.style.opacity = '1', 100);
-});
-
-console.log('%c🚀 Kartik Rawat Portfolio', 'color: #6366f1; font-size: 20px; font-weight: bold;');
-console.log('%c@bekartikrawat | kartikrawat1333@gmail.com', 'color: #8b5cf6; font-size: 14px;');
+}

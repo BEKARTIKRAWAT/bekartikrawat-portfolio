@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kartik Rawat — Resume</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          playfair: ['Playfair Display', 'serif'],
+          mono: ['DM Mono', 'monospace'],
+          outfit: ['Outfit', 'sans-serif'],
+        },
+        colors: {
+          gold: '#e8c97a',
+          'gold-light': '#f0d896',
+          'gold-dim': 'rgba(232,201,122,0.08)',
+          'gold-border': 'rgba(232,201,122,0.2)',
+          blue: '#7ab8e8',
+          dark: '#080a0e',
+          card: '#12161f',
+          border: '#1e2535',
+          muted: '#6b7280',
+          dim: '#374151',
+        },
+        animation: {
+          'fade-up': 'fadeUp 0.8s ease forwards',
+          'pulse-dot': 'pulseDot 2s infinite',
+        },
+        keyframes: {
+          fadeUp: { from: { opacity: 0, transform: 'translateY(24px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
+          pulseDot: { '0%,100%': { opacity: 1, transform: 'scale(1)' }, '50%': { opacity: 0.5, transform: 'scale(0.8)' } },
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background: #080a0e; font-family: 'Outfit', sans-serif; }
+  .glow-gold { background: radial-gradient(circle, rgba(232,201,122,0.07) 0%, transparent 70%); }
+  .glow-blue { background: radial-gradient(circle, rgba(122,184,232,0.05) 0%, transparent 70%); }
+  .section-fade { opacity: 0; animation: fadeUp 0.8s ease forwards; }
+  .s1 { animation-delay: 0.05s; } .s2 { animation-delay: 0.15s; } .s3 { animation-delay: 0.25s; }
+  .s4 { animation-delay: 0.35s; } .s5 { animation-delay: 0.45s; } .s6 { animation-delay: 0.55s; } .s7 { animation-delay: 0.65s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .status-dot { animation: pulseDot 2s infinite; }
+  @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+  .card-hover { transition: border-color 0.2s, transform 0.2s; }
+  .card-hover:hover { border-color: rgba(232,201,122,0.3) !important; transform: translateY(-3px); }
+  .skill-hover:hover { border-color: rgba(122,184,232,0.3) !important; }
+  .pill-hover { transition: all 0.2s; }
+  .pill-hover:hover { border-color: rgba(232,201,122,0.3) !important; color: #e8c97a !important; background: rgba(232,201,122,0.05) !important; }
+  .proj-line::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #e8c97a, #7ab8e8); opacity: 0; transition: opacity 0.2s; }
+  .proj-line:hover::before { opacity: 1; }
+  .proj-line { transition: border-color 0.2s, transform 0.2s; }
+  .proj-line:hover { border-color: rgba(232,201,122,0.25) !important; transform: translateY(-3px); }
+  ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: #080a0e; } ::-webkit-scrollbar-thumb { background: #1e2535; border-radius: 2px; }
+  .download-btn { transition: all 0.2s; }
+  .download-btn:hover { background: #f0d896 !important; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,201,122,0.3); }
+  .back-link { transition: all 0.2s; }
+  .back-link:hover { background: rgba(232,201,122,0.2) !important; }
+  .contact-link { transition: color 0.2s; }
+  .contact-link:hover { color: #e8c97a !important; }
+  .noise { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); opacity: 0.35; }
+</style>
+</head>
+<body class="text-gray-200 min-h-screen overflow-x-hidden font-outfit">
+
+  <!-- Noise + Glows -->
+  <div class="fixed inset-0 noise pointer-events-none z-0"></div>
+  <div class="fixed w-[600px] h-[600px] glow-gold -top-48 -right-48 pointer-events-none z-0"></div>
+  <div class="fixed w-[500px] h-[500px] glow-blue -bottom-24 -left-24 pointer-events-none z-0"></div>
+
+  <!-- Back Button -->
+  <a href="/" class="back-link fixed top-5 left-5 z-50 inline-flex items-center gap-2 bg-[rgba(232,201,122,0.1)] border border-[rgba(232,201,122,0.2)] text-[#e8c97a] font-mono text-xs px-4 py-2 rounded-full no-underline tracking-widest uppercase">
+    ← Portfolio
+  </a>
+
+  <div class="max-w-4xl mx-auto px-6 py-16 relative z-10">
+
+    <!-- ══ HERO ══ -->
+    <div class="section-fade grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 items-start pb-14 border-b border-[#1e2535] mb-14">
+      <div>
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-[rgba(232,201,122,0.08)] border border-[rgba(232,201,122,0.2)] rounded-full px-4 py-1.5 font-mono text-[11px] text-[#e8c97a] tracking-widest uppercase mb-7">
+          <span class="status-dot w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span>
+          Available for Freelance & Internship
+        </div>
+        <!-- Name -->
+        <h1 class="font-playfair font-black leading-[0.92] tracking-tight mb-4" style="font-size: clamp(52px,9vw,82px)">
+          <span class="block text-white">Kartik</span>
+          <span class="block text-[#e8c97a] italic">Rawat.</span>
+        </h1>
+        <p class="font-mono text-sm text-[#6b7280] tracking-[0.18em] uppercase mb-7">Full Stack Developer · Fresher</p>
+        <!-- Contacts -->
+        <div class="flex flex-wrap gap-5">
+          <a href="tel:9389690052" class="contact-link flex items-center gap-2 font-mono text-xs text-[#6b7280] no-underline">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+            9389690052
+          </a>
+          <a href="mailto:kartikrawat1333@gmail.com" class="contact-link flex items-center gap-2 font-mono text-xs text-[#6b7280] no-underline">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            kartikrawat1333@gmail.com
+          </a>
+          <a href="https://github.com/bekartikrawat" target="_blank" class="contact-link flex items-center gap-2 font-mono text-xs text-[#6b7280] no-underline">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            bekartikrawat
+          </a>
+          <span class="contact-link flex items-center gap-2 font-mono text-xs text-[#6b7280]">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Delhi, India
+          </span>
+        </div>
+      </div>
+      <!-- Download -->
+      <div class="flex flex-col items-start md:items-center gap-3 mt-2">
+        <button onclick="window.print()" class="download-btn inline-flex items-center gap-2.5 bg-[#e8c97a] text-black font-mono text-xs font-medium tracking-widest uppercase px-5 py-3 rounded-lg border-0 cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Download CV
+        </button>
+      </div>
+    </div>
+
+    <!-- ══ OBJECTIVE ══ -->
+    <div class="section-fade s1 mb-14">
+      <div class="flex items-center gap-4 mb-7">
+        <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-[#e8c97a]">Career Objective</span>
+        <div class="flex-1 h-px bg-[#1e2535]"></div>
+        <span class="font-mono text-[10px] text-[#374151]">01</span>
+      </div>
+      <p class="text-lg leading-relaxed text-[#a0a8b8] font-light italic border-l-2 border-[#e8c97a] pl-6">
+        Motivated Full Stack Developer fresher with hands-on knowledge of web technologies. Looking for an opportunity to apply my skills, gain real-world experience, and contribute to scalable and user-friendly web applications.
+      </p>
+    </div>
+
+    <!-- ══ HIGHLIGHTS ══ -->
+    <div class="section-fade s2 mb-14">
+      <div class="flex items-center gap-4 mb-7">
+        <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-[#e8c97a]">Profile Highlights</span>
+        <div class="flex-1 h-px bg-[#1e2535]"></div>
+        <span class="font-mono text-[10px] text-[#374151]">02</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="card-hover flex items-start gap-3 bg-[#12161f] border border-[#1e2535] rounded-xl p-4">
+          <span class="text-lg mt-0.5">⚡</span>
+          <p class="text-sm text-[#8b95a8] leading-relaxed">Strong foundation in frontend & backend web development</p>
+        </div>
+        <div class="card-hover flex items-start gap-3 bg-[#12161f] border border-[#1e2535] rounded-xl p-4">
+          <span class="text-lg mt-0.5">🛠</span>
+          <p class="text-sm text-[#8b95a8] leading-relaxed">Hands-on experience with academic & practice projects</p>
+        </div>
+        <div class="card-hover flex items-start gap-3 bg-[#12161f] border border-[#1e2535] rounded-xl p-4">
+          <span class="text-lg mt-0.5">🚀</span>
+          <p class="text-sm text-[#8b95a8] leading-relaxed">Quick learner with passion for modern web technologies</p>
+        </div>
+        <div class="card-hover flex items-start gap-3 bg-[#12161f] border border-[#1e2535] rounded-xl p-4">
+          <span class="text-lg mt-0.5">🎯</span>
+          <p class="text-sm text-[#8b95a8] leading-relaxed">Ready for internship & entry-level full stack roles</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SKILLS ══ -->
+    <div class="section-fade s3 mb-14">
+      <div class="flex items-center gap-4 mb-7">
+        <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-[#e8c97a]">Technical Skills</span>
+        <div class="flex-1 h-px bg-[#1e2535]"></div>
+        <span class="font-mono text-[10px] text-[#374151]">03</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="skill-hover bg-[#12161f] border border-[#1e2535] rounded-xl p-5 transition-colors duration-200">
+          <p class="font-mono text-[10px] tracking-[0.15em] uppercase text-[#7ab8e8] mb-4">Frontend</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">HTML5</span>
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">CSS3</span>
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">JavaScript</span>
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">React.js</span>
+          </div>
+        </div>
+        <div class="skill-hover bg-[#12161f] border border-[#1e2535] rounded-xl p-5 transition-colors duration-200">
+          <p class="font-mono text-[10px] tracking-[0.15em] uppercase text-[#7ab8e8] mb-4">Backend</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">Node.js</span>
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">Express.js</span>
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-hover bg-[#12161f] border border-[#1e2535] rounded-xl p-5 transition-colors duration-200">
+          <p class="font-mono text-[10px] tracking-[0.15em] uppercase text-[#7ab8e8] mb-4">Database & Tools</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">MongoDB</span>
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">Git</span>
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">GitHub</span>
+            <span class="bg-[rgba(122,184,232,0.08)] border border-[rgba(122,184,232,0.15)] text-[#a8c8e0] text-xs px-2.5 py-1 rounded font-mono">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ EDUCATION ══ -->
+    <div class="section-fade s4 mb-14">
+      <div class="flex items-center gap-4 mb-7">
+        <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-[#e8c97a]">Education</span>
+        <div class="flex-1 h-px bg-[#1e2535]"></div>
+        <span class="font-mono text-[10px] text-[#374151]">04</span>
+      </div>
+      <div class="space-y-3">
+        <div class="card-hover bg-[#12161f] border border-[#1e2535] rounded-xl p-6 grid grid-cols-[1fr_auto] gap-4 items-start">
+          <div>
+            <p class="font-playfair font-bold text-white text-lg mb-1">Diploma in Computer Science & Engineering</p>
+            <p class="text-sm text-[#6b7280] mb-1">Government Polytechnic Bironkhal, Pauri Garhwal, Uttarakhand</p>
+            <p class="font-mono text-xs text-green-400">🎓 Pursuing · 2022 – 2025</p>
+          </div>
+          <span class="font-mono text-[11px] text-[#e8c97a] bg-[rgba(232,201,122,0.08)] border border-[rgba(232,201,122,0.15)] px-3 py-1 rounded-full whitespace-nowrap">Current</span>
+        </div>
+        <div class="card-hover bg-[#12161f] border border-[#1e2535] rounded-xl p-6 grid grid-cols-[1fr_auto] gap-4 items-start">
+          <div>
+            <p class="font-playfair font-bold text-white text-lg mb-1">Senior Secondary (12th)</p>
+            <p class="text-sm text-[#6b7280] mb-1">NIOS Board</p>
+            <p class="font-mono text-xs text-green-400">📊 60%</p>
+          </div>
+          <span class="font-mono text-[11px] text-[#e8c97a] bg-[rgba(232,201,122,0.08)] border border-[rgba(232,201,122,0.15)] px-3 py-1 rounded-full whitespace-nowrap">Completed</span>
+        </div>
+        <div class="card-hover bg-[#12161f] border border-[#1e2535] rounded-xl p-6 grid grid-cols-[1fr_auto] gap-4 items-start">
+          <div>
+            <p class="font-playfair font-bold text-white text-lg mb-1">Secondary (10th)</p>
+            <p class="text-sm text-[#6b7280] mb-1">Uttarakhand Board</p>
+            <p class="font-mono text-xs text-green-400">📊 75%</p>
+          </div>
+          <span class="font-mono text-[11px] text-[#e8c97a] bg-[rgba(232,201,122,0.08)] border border-[rgba(232,201,122,0.15)] px-3 py-1 rounded-full whitespace-nowrap">Completed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PROJECTS ══ -->
+    <div class="section-fade s5 mb-14">
+      <div class="flex items-center gap-4 mb-7">
+        <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-[#e8c97a]">Projects</span>
+        <div class="flex-1 h-px bg-[#1e2535]"></div>
+        <span class="font-mono text-[10px] text-[#374151]">05</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="proj-line relative bg-[#12161f] border border-[#1e2535] rounded-xl p-6 overflow-hidden">
+          <p class="font-playfair font-bold text-white text-base mb-2">Portfolio Website</p>
+          <p class="text-xs text-[#6b7280] leading-relaxed mb-4">Full-featured personal portfolio with AI chatbot integration, responsive design, and MongoDB-backed backend.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">HTML</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">CSS</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">Node.js</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">MongoDB</span>
+          </div>
+        </div>
+        <div class="proj-line relative bg-[#12161f] border border-[#1e2535] rounded-xl p-6 overflow-hidden">
+          <p class="font-playfair font-bold text-white text-base mb-2">Responsive Web Apps</p>
+          <p class="text-xs text-[#6b7280] leading-relaxed mb-4">Built multiple responsive websites with modern UI patterns and a mobile-first approach.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">HTML5</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">CSS3</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">JavaScript</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">React.js</span>
+          </div>
+        </div>
+        <div class="proj-line relative bg-[#12161f] border border-[#1e2535] rounded-xl p-6 overflow-hidden">
+          <p class="font-playfair font-bold text-white text-base mb-2">Backend REST API</p>
+          <p class="text-xs text-[#6b7280] leading-relaxed mb-4">Designed and implemented RESTful APIs using Node.js and Express with MongoDB for data persistence.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">Node.js</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">Express</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">MongoDB</span>
+          </div>
+        </div>
+        <div class="proj-line relative bg-[#12161f] border border-[#1e2535] rounded-xl p-6 overflow-hidden">
+          <p class="font-playfair font-bold text-white text-base mb-2">AI Chat Integration</p>
+          <p class="text-xs text-[#6b7280] leading-relaxed mb-4">Integrated an AI-powered chatbot to answer visitor questions about skills and experience in real time.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">Node.js</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">Axios</span>
+            <span class="font-mono text-[10px] text-[#e8c97a] bg-[rgba(232,201,122,0.06)] border border-[rgba(232,201,122,0.12)] px-2 py-0.5 rounded">AI API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SOFT SKILLS ══ -->
+    <div class="section-fade s6 mb-14">
+      <div class="flex items-center gap-4 mb-7">
+        <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-[#e8c97a]">Soft Skills</span>
+        <div class="flex-1 h-px bg-[#1e2535]"></div>
+        <span class="font-mono text-[10px] text-[#374151]">06</span>
+      </div>
+      <div class="flex flex-wrap gap-2.5">
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">Quick Learner</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">Problem Solving</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">Communication</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">Team Collaboration</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">Time Management</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">Adaptability</span>
+      </div>
+    </div>
+
+    <!-- ══ INTERESTS ══ -->
+    <div class="section-fade s7 mb-14">
+      <div class="flex items-center gap-4 mb-7">
+        <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-[#e8c97a]">Interests</span>
+        <div class="flex-1 h-px bg-[#1e2535]"></div>
+        <span class="font-mono text-[10px] text-[#374151]">07</span>
+      </div>
+      <div class="flex flex-wrap gap-2.5">
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">🌐 Web Development</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">🤖 New Technologies</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">🎨 UI Design</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">🧩 Problem Solving</span>
+        <span class="pill-hover bg-[#12161f] border border-[#1e2535] rounded-full px-4 py-2 text-sm text-[#8b95a8] cursor-default">🚀 Open Source</span>
+      </div>
+    </div>
+
+    <!-- ══ FOOTER ══ -->
+    <div class="section-fade mt-14 pt-8 border-t border-[#1e2535] flex justify-between items-center">
+      <span class="font-mono text-xs text-[#374151]">bekartikrawat · 2025 · Delhi, India</span>
+      <span class="font-playfair text-xl text-[#e8c97a] italic">Available to hire.</span>
+    </div>
+
+  </div>
+</body>
+</html>

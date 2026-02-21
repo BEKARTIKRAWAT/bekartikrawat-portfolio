@@ -1,0 +1,228 @@
+/* ===== ADD THESE TO YOUR EXISTING style.css FILE ===== */
+
+/* ========== THEME TOGGLE ========== */
+.theme-toggle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #a0aec0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+.theme-toggle-btn:hover {
+  background: rgba(99,102,241,0.2);
+  color: #6366f1;
+  border-color: #6366f1;
+}
+
+/* ========== LIGHT MODE ========== */
+html.light-mode {
+  --bg: #f0f0f8;
+  --card-bg: #ffffff;
+  --text: #0f0f1a;
+  --text-muted: #555577;
+  --border: #e2e2f0;
+}
+html.light-mode body {
+  background: #f0f0f8;
+  color: #0f0f1a;
+}
+html.light-mode .navbar {
+  background: rgba(240,240,248,0.9) !important;
+  border-color: #e2e2f0 !important;
+}
+html.light-mode .nav-link { color: #555577 !important; }
+html.light-mode .nav-link:hover { color: #0f0f1a !important; }
+html.light-mode .text-gray-400 { color: #555577 !important; }
+html.light-mode .text-gray-500 { color: #7777aa !important; }
+html.light-mode .skill-card,
+html.light-mode .stat-card,
+html.light-mode .project-card,
+html.light-mode .contact-card,
+html.light-mode .info-row {
+  background: #ffffff !important;
+  border-color: #e2e2f0 !important;
+}
+html.light-mode .chat-container {
+  background: #ffffff !important;
+  border-color: #e2e2f0 !important;
+}
+html.light-mode .chat-header {
+  background: #f8f8ff !important;
+  border-color: #e2e2f0 !important;
+}
+html.light-mode .chat-messages {
+  background: #fafaff !important;
+}
+html.light-mode .bot-bubble {
+  background: #ededf8 !important;
+  color: #0f0f1a !important;
+}
+html.light-mode .chat-input {
+  background: #f0f0f8 !important;
+  color: #0f0f1a !important;
+  border-color: #e2e2f0 !important;
+}
+html.light-mode .contact-form-card {
+  background: #ffffff !important;
+  border-color: #e2e2f0 !important;
+}
+html.light-mode .form-input {
+  background: #f0f0f8 !important;
+  color: #0f0f1a !important;
+  border-color: #e2e2f0 !important;
+}
+html.light-mode .section-tag {
+  background: rgba(99,102,241,0.1) !important;
+  color: #6366f1 !important;
+}
+html.light-mode footer {
+  background: #e8e8f5;
+  border-color: #e2e2f0 !important;
+}
+html.light-mode .badge {
+  background: rgba(99,102,241,0.08) !important;
+  border-color: rgba(99,102,241,0.2) !important;
+}
+html.light-mode .grid-bg { opacity: 0.3; }
+html.light-mode .blob { opacity: 0.4; }
+
+/* ========== SUGGESTION CHIPS ========== */
+.suggestion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px 4px;
+}
+.chip {
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.25);
+  color: #a5b4fc;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.chip:hover {
+  background: rgba(99,102,241,0.25);
+  border-color: #6366f1;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ========== CLEAR CHAT BUTTON ========== */
+.clear-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #666;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.clear-btn:hover {
+  background: rgba(239,68,68,0.15);
+  border-color: rgba(239,68,68,0.3);
+  color: #ef4444;
+}
+
+/* ========== TYPING ANIMATION DOTS ========== */
+.typing-bubble {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 18px !important;
+  min-width: 60px;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6366f1;
+  animation: dotBounce 1.2s infinite ease-in-out;
+}
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* ========== USER BUBBLE STYLE ========== */
+.user-bubble {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: #fff !important;
+  margin-left: auto;
+}
+.chat-msg {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.chat-msg-user {
+  flex-direction: row-reverse;
+}
+.user-avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ========== CONTACT FORM ========== */
+.contact-form-card {
+  background: #0e0e1a;
+  border: 1px solid rgba(99,102,241,0.15);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+}
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.form-group { display: flex; flex-direction: column; }
+.form-input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+}
+.form-input:focus {
+  border-color: #6366f1;
+  background: rgba(99,102,241,0.07);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+}
+.form-input::placeholder { color: #4a4a6a; }
