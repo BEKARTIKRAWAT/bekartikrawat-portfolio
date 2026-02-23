@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+
+  <defs>
+    <!-- Gold Gradient -->
+    <radialGradient id="goldGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fff6c9"/>
+      <stop offset="40%" stop-color="#ffd700"/>
+      <stop offset="70%" stop-color="#e6b800"/>
+      <stop offset="100%" stop-color="#a67c00"/>
+    </radialGradient>
+
+    <!-- Gloss Sweep -->
+    <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      <animateTransform attributeName="gradientTransform"
+        type="translate"
+        from="-1 0"
+        to="1 0"
+        dur="3s"
+        repeatCount="indefinite"/>
+    </linearGradient>
+
+    <!-- Strong Glow -->
+    <filter id="goldGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- Background -->
+  <rect width="200" height="200" rx="40" fill="#0b0b15"/>
+
+  <!-- Rotating Coin Base -->
+  <g>
+    <circle cx="100" cy="100" r="70" fill="url(#goldGrad)" filter="url(#goldGlow)">
+      <animateTransform 
+        attributeName="transform"
+        type="rotate"
+        from="0 100 100"
+        to="360 100 100"
+        dur="8s"
+        repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Embossed KR -->
+  <text x="100" y="120" text-anchor="middle"
+        font-size="70"
+        font-family="Georgia, serif"
+        font-weight="900"
+        fill="#3d2c00">
+    KR
+  </text>
+
+  <text x="100" y="115" text-anchor="middle"
+        font-size="70"
+        font-family="Georgia, serif"
+        font-weight="900"
+        fill="url(#shineGrad)">
+    KR
+  </text>
+
+  <!-- Sparkle -->
+  <circle cx="140" cy="60" r="4" fill="white">
+    <animate attributeName="opacity"
+      values="0;1;0"
+      dur="2s"
+      repeatCount="indefinite"/>
+  </circle>
+
+</svg>
