@@ -14,8 +14,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio';
-mongoose.connect(mongoURI)
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/portfolio';
+mongoose.connect(mongoURI, {
+  serverSelectionTimeoutMS: 5000,
+  family: 4
+})
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log('MongoDB Error:', err));
 
